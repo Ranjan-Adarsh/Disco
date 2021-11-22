@@ -1,4 +1,5 @@
 #include<unistd.h>
+#include<stddef.h>
 void plot(char * fname){
     int pid;
     if((pid = fork())==0){
