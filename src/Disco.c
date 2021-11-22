@@ -35,6 +35,13 @@ void mainMenuOptions()
 void menu2(int option)
 {
 	printf("Do you want to visualise how the network will look if we add minimum links to satisfy the property?");
+	switch(option)
+	{
+		case 1:
+		case 2:
+		case 3:
+		case 7:
+	}
 }
 void menu3(int option)
 {
@@ -85,8 +92,134 @@ bool isSymmetric()
 
 bool isTransitive()
 {
-	
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length;j++)
+		{
+			if(mat[i][j]==1)
+			{
+				for(int k=0;k<length;k++)
+				{
+					if(mat[j][k]==1)
+					{
+						if(mat[i][k]!=1)
+							return false;
+					}
+				}
+			}
+		}
+	}
+	return true;
 }
+bool hasAtleastOneReflexive()
+{
+	for(int i=0;i<length;i++)
+	{
+		if(mat[i][i]==1)
+			return true;
+	}
+	return false;
+}
+bool hasAtleastOneSymmetric()
+{
+	for(int i=1;i<length;i++)
+	{
+		for(int j=0;j<i-1;j++)
+		{
+			if(mat[i][j]==mat[j][i])
+				return true;
+		}
+	}
+	return false;
+}
+bool hasAtleastOneTransitive(){
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length;j++)
+		{
+			if(mat[i][j]==1)
+			{
+				for(int k=0;k<length;k++)
+				{
+					if(mat[j][k]==1)
+					{
+						if(mat[i][k]==1)
+							return true;
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
+void makeReflexive()
+{
+	int temp[length][length];
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length;j++)
+		{
+			if(i==j)
+				temp[i][j]=1;
+			else
+				temp[i][j]=mat[i][j];
+		}
+	}
+
+	//make the respective calling
+}
+
+void makeSymmetric()
+{
+	int temp[length][length];
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<=i;j++)
+		{
+			if(i==j)
+				temp[i][j]=1;
+			else if(mat[i][j]==1 || mat[j][i]==1)
+			{
+				temp[i][j]=1;
+				temp[j][i]=1;
+			}
+			else
+			{
+				temp[i][j]=0;
+				temp[j][i]=0;
+			}
+		}
+	}
+	//call the necessary function  for graph display
+}
+
+void makeTransitive()
+{
+	int temp[length][length];
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length;j++)
+		{
+			temp[i][j]=mat[i][j];
+		}
+	}
+	//Warshall Algo starts here
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length;j++)
+		{
+			for(int k=0;k<length;k++)
+			{
+				if(temp[i][k]==1 && temp[k][j]==1)
+					temp[i][j]=1;
+			}
+		}
+	}
+	//call necessary function for displaying graph
+}
+
+
+
 int main(void) {
 
 	//File *f=fopen("","r")
