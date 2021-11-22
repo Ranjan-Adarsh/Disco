@@ -12,10 +12,12 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
+#include<stdbool.h>
 
 //global variables
-int* mat[5];
-char* sites[40];
+int** mat;
+char** sites;
+int length;
 
 void mainMenuOptions()
 {
@@ -57,12 +59,43 @@ void menu5Options()
 	printf("3. Is the lattice distributive?\n");
 	printf("4. Return to Menu 4\n");
 }
+
+bool isReflexive()
+{
+	for(int i=0;i<length;i++)
+	{
+		if(mat[i][i]==0)
+			return false;
+	}
+	return false;
+}
+
+bool isSymmetric()
+{
+	for(int i=1;i<length;i++)
+	{
+		for(int j=0;j<i-1;j++)
+		{
+			if(mat[i][j]!=mat[j][i])
+				return false;
+		}
+	}
+	return true;
+}
+
+bool isTransitive()
+{
+	
+}
 int main(void) {
 
 	//File *f=fopen("","r")
 	  //Data can be easily cleaned
 	int mat1[5][5]={{0,1,0,1,1},{0,0,1,0,1},{0,1,0,1,1},{1,0,1,0,1},{1,1,1,1,1}};
+	mat= (int **)mat1[0];
 	char sites1[5][40]={"TheTreeCut.com","ConveyLaws.com","ZerosMind.com","RisingMind.com","WaveWaters.com"};
+	sites= sites1[0];
+	length=5;
 	 int choice;
 	 printf("\\nMain menu\\n");
 	 mainMenuOptions();
