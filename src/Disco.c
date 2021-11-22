@@ -10,6 +10,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+
+//global variables
+int* mat[5];
+char* sites[40];
+
 void mainMenuOptions()
 {
 	printf("1. Does every website has a link to itself?\n");
@@ -51,6 +58,11 @@ void menu5Options()
 	printf("4. Return to Menu 4\n");
 }
 int main(void) {
+
+	//File *f=fopen("","r")
+	  //Data can be easily cleaned
+	int mat1[5][5]={{0,1,0,1,1},{0,0,1,0,1},{0,1,0,1,1},{1,0,1,0,1},{1,1,1,1,1}};
+	char sites1[5][40]={"TheTreeCut.com","ConveyLaws.com","ZerosMind.com","RisingMind.com","WaveWaters.com"};
 	 int choice;
 	 printf("\\nMain menu\\n");
 	 mainMenuOptions();
