@@ -28,7 +28,7 @@ void mainMenuOptions()
 	printf("5. Is it impossible to return to the previous website from the current website in on step?\n");
 	printf("6. Is it impossible to return to the previous website from the current website in on step(excluding the cases where the previous and current website is same)?\n");
 	printf("7. Is it possible to divide the network into multiple pieces such that every website in a piece is reachable from every other website in that piece?\n");
-	printf("8. Is this relation an example of poset?");
+	printf("8. Is this relation an example of poset?\n");
 	printf("9. Exit");
 
 }
@@ -41,6 +41,10 @@ void menu2(int option)
 		case 2:
 		case 3:
 		case 7:
+		default:
+		{
+			printf("Invalid Choice");
+		}
 	}
 }
 void menu3(int option)
@@ -56,7 +60,7 @@ void menu4Options()
 	printf("5. Display the websites that can't be reached from any other website except itself\n");
 	printf("6. Given some websites display the websites which are reachable from all of them \n");
 	printf("7. Given some websites, display the websites from which you can reach all those websites\n");
-	printf("8. Is this relation an example of lattice?\n");
+	printf("8. Is this relation an example of lattice?\n\n");
 	printf("9. Return to Main Menu\n");
 }
 void menu5Options()
@@ -227,10 +231,10 @@ int main(void) {
 	int mat1[5][5]={{0,1,0,1,1},{0,0,1,0,1},{0,1,0,1,1},{1,0,1,0,1},{1,1,1,1,1}};
 	mat= (int **)mat1[0];
 	char sites1[5][40]={"TheTreeCut.com","ConveyLaws.com","ZerosMind.com","RisingMind.com","WaveWaters.com"};
-	sites= sites1[0];
+	sites= (char **)sites1[0];
 	length=5;
 	 int choice;
-	 printf("\\nMain menu\\n");
+	 printf("\n\t\t\tMain menu\n");
 	 mainMenuOptions();
 	 scanf("%d",&choice);
 	 switch(choice)
