@@ -8,6 +8,8 @@ int g[mxN][mxN]; // graph
 int vis[mxN];  // boolean visited array
 int cmp[mxN];  // component of each node
 
+const char * labels[] = {"Tree", "Wave", "Cloud", "Bruh", "Yama"};
+
 void dfs (int u) {
    vis[u] = 1;
    cmp[u] = ct; 
@@ -33,11 +35,21 @@ int main () {
          dfs(i);
       }   
    }
-   for (int i = 0; i < n; i++) {
+   /* for (int i = 0; i < n; i++) {
       printf("%d ", cmp[i]);
    }
-   printf("\n");
-   // can print all the connected components from here as needed, ct is the total components
+   printf("\n"); */
+   // answer of that question is always yes, if we count a single website to be a part of the piece.
+   // O(n^2) without the use of a hashmap.
+   for (int i = 1; i <= ct; i++) {
+      printf("Component %d:\n", i);
+      for (int j = 0; j < n; j++) {
+         if (cmp[j] == i) {
+            printf("%s ", labels[j]);
+         }
+      }
+      printf("\n");
+   }
    return 0;
 }
 
