@@ -13,15 +13,20 @@ int main () {
    if (fgets(line, sizeof(line), stream)) {
       int i = 0;
       char *token;
-      token = strtok(line, " ");
+      token = strtok(line, ",");
       while (token != NULL) {
-         if (i != 0) {
+         /*if (i != 0) {
             strcpy(labels[i - 1], token);
-         }
-         token = strtok(NULL, " ");
+         } else {
+            char t1[100];
+            strcpy(t1, token);
+            printf("%s\n", t1);
+         }*/
+         strcpy(labels[i], token);
+         token = strtok(NULL, ",");
          i++;
+         label_count++;
       }
-      label_count = i;
    }
    /* filling the graph as a 2d-matrix */
    int graph[label_count][label_count];
@@ -29,7 +34,7 @@ int main () {
    while (fgets(line, sizeof(line), stream)) {
       char* tmp = strdup(line);
       char *token;
-      token = strtok(tmp, " ");
+      token = strtok(tmp, ",");
       int column = 0;
       while (token != NULL) {
          if (column != 0) {
@@ -37,12 +42,15 @@ int main () {
             strcpy(c, token);
             graph[row][column - 1] = (c[0] - '0');
          }   
-         token = strtok(NULL, " ");
+         token = strtok(NULL, ",");
          column++;
       }
       free(tmp);
       row++;
    }
    fclose(stream);
+   for (int i = 0; i < label_count; i++) {
+      printf("%s\n", labels[i]);
+   }
    return 0;
 }  
