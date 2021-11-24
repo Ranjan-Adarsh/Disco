@@ -274,6 +274,53 @@ void makeHasseMatrix()
 		}
 	}
 	//Call necesaary funcyion to display hasse matrix
+   void menu4_2 () {
+      for (int i = 0; i < length; i++) {
+         bool flag = false;
+         for (int j = 0; j < length; j++) {
+            flag &= (mat[j][i]);
+         }
+         if (flag) {
+            printf("%s\n", sites[i]);
+         }
+      }
+   }
+   void menu4_3 () {
+      for (int i = 0; i < length; i++) {
+         bool flag = false;
+         for (int j = 0; j < length; j++) {
+            flag &= (mat[i][j]);
+         }
+         if (flag) {
+            printf("%s\n", sites[i]);
+         }
+      }
+   }
+   void menu4_4 () {
+      for (int i = 0; i < length; i++) {
+         if (i == j) continue;
+         bool flag = true;
+         for (int j = 0; j < length; j++) {
+            flag &= (!mat[i][j]);
+         }
+         if (flag) {
+            printf("%s\n", sites[i]);
+         }
+      }
+   }
+   void menu4_5 () {
+      for (int i = 0; i < length; i++) {
+         if (i == j) continue;
+         bool flag = true;
+         for (int j = 0; j < length; j++) {
+            flag &= (!mat[j][i]);
+         }
+         if (flag) {
+            printf("%s\n", sites[i]);
+         }
+      }
+   }
+   
 }
 
 
