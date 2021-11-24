@@ -115,6 +115,28 @@ bool isTransitive()
 	}
 	return true;
 }
+bool isAntiSymmetric()
+{
+	for(int i=1;i<length;i++)
+	{
+		for(int j=0;j<i-1;j++)
+		{
+			if(i==j)
+				continue;
+			else if(mat[i][j]==mat[j][i])
+				return false;
+		}
+	}
+	return true;
+}
+bool isPoset()
+{
+	if(isAntiSymmetric() && isReflexive() && isTransitive())
+	{
+		return true;
+	}
+	return false;
+}
 bool hasAtleastOneReflexive()
 {
 	for(int i=0;i<length;i++)
@@ -220,6 +242,38 @@ void makeTransitive()
 		}
 	}
 	//call necessary function for displaying graph
+}
+
+void makeHasseMatrix()
+{
+	int temp[length][length];
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length;j++)
+		{
+			temp[i][j]=mat[i][j];
+		}
+	}
+	for(int i=0;i<length;i++)
+	{
+		for(int j=0;j<length;j++)
+		{
+			if(i==j && temp[i][j]==1)
+			{
+				temp[i][j]=0;
+				continue;
+			}
+			else if(mat[i][j]==1)
+			{
+			for(int k=0;k<length;k++)
+			{
+				if(temp[j][k]==1 && temp[i][k]==1)
+					temp[i][k]=0;
+			}
+			}
+		}
+	}
+	//Call necesaary funcyion to display hasse matrix
 }
 
 
