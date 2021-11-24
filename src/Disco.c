@@ -62,6 +62,40 @@ void menu4Options()
 	printf("7. Given some websites, display the websites from which you can reach all those websites\n");
 	printf("8. Is this relation an example of lattice?\n\n");
 	printf("9. Return to Main Menu\n");
+	int cM4;
+	scanf("%d",&cM4);
+	switch(cM4){
+		case 1:
+		{
+			makeHasseMatrix();
+			break;
+		}
+		case 2:
+		{
+			break;
+		}
+		case 3:{
+			break;
+		}
+		case 4:{
+			break;
+		}
+		case 5:{
+			break;
+		}
+		case 6:{
+			break;
+		}
+		case 7:{
+			break;
+		}
+		case 8:{
+			break;
+		}
+		case 9:{
+			break;
+		}
+	}
 }
 void menu5Options()
 {
