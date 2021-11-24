@@ -15,7 +15,7 @@ void dfs (int u) {
    cmp[u] = ct; 
    for (int v = 0; v < n; v++) {
       if (vis[v] == 0 && g[u][v] == 1 && g[v][u] == 1) {
-         printf("%d %d\n", u, v);
+         //printf("%d %d\n", u, v);
          dfs(v);
       }
    }
@@ -67,7 +67,7 @@ Test case 1:
 5
 0 0 0 1 0 
 0 0 1 0 0 
-0 1 0 0 0
+0 0 0 0 0
 1 0 0 0 1
 0 0 0 1 0
 2 components: {1, 4, 5}, {2, 3}

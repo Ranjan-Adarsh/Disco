@@ -1,5 +1,9 @@
 #include<unistd.h>
 #include<stddef.h>
+#include<stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#define _XOPEN_SOURCE 600
 void plot(char * fname){
     int pid;
     if((pid = fork())==0){
@@ -10,6 +14,6 @@ void plot(char * fname){
     exit(0);
 }
 int main(){
-    plot("mycsv.csv");
+    plot("SampleInput.csv");
     return 0;
 }
